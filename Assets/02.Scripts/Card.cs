@@ -10,17 +10,18 @@ public class Card : MonoBehaviour
     public bool hasBeenPlayed;
 
     public int handIndex;
-    public string cardName,cardCost,cardInform;
+
+    public string cardName;
+    [TextArea]
+    public string   cardInform;
+
     public int[] figure;
 
     private GameManager gm;
-    public TMP_Text Name, Cost, Inform;
+    public Player player;
 
-    private void Start()
-    {
-        gm = FindObjectOfType<GameManager>();
-
-    }
+    public TMP_Text textName, textInform;
+    private string _cardInform;
 
     private void OnMouseDown()
     {
@@ -28,6 +29,7 @@ public class Card : MonoBehaviour
         {
             transform.position += Vector3.up * 2;
             hasBeenPlayed = true;
+            
             gm.availableCardSlots[handIndex] = true;
             Invoke("MoveToDiscardPile", 2f);
         }
@@ -37,23 +39,38 @@ public class Card : MonoBehaviour
         gm.discardPile.Add(this);
         gameObject.SetActive(false);
     }
-}
 
-class Effect
-{
-    Card card = new Card();
-    void Brave(int dmg)
+    public string SetInform(string inform)
     {
-         card.cardInform += $"용기를 {dmg}얻는다. ";
+        string[] informs = inform.Split('!');
+        string informR = "";
+        for(int i = 0; i < informs.Length; i++)
+        {
+            if(i%2 == 0)
+            {
+                informR += informs[i];
+            }
+            else
+            {
+                informR += figure[i/2];
+            }
+        }
+        return informR;
     }
-}
-class Write
-{
-    Card card = new Card();
-    void Writing(string n, string c, string i)
+
+    void Writing(string n, string i)
     {
-        card.Name.text = n;
-        card.Cost.text = c;
-        card.Inform.text = i;
+        textName.text = n;
+        textInform.text = i;
+    }
+
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<Player>();
+        textName = transform.GetChild(1).GetComponent<TMP_Text>();
+        textInform = transform.GetChild(2).GetComponent<TMP_Text>();
+        _cardInform = SetInform(cardInform);
+        Writing(cardName,_cardInform);
     }
 }
