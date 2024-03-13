@@ -13,7 +13,9 @@ public class Card : MonoBehaviour
 
     public string cardName;
     [TextArea]
-    public string   cardInform;
+    public string cardInform;
+
+    public effectType[] effectTypes;
 
     public int[] figure;
 
@@ -29,7 +31,54 @@ public class Card : MonoBehaviour
         {
             transform.position += Vector3.up * 2;
             hasBeenPlayed = true;
-            
+            for(int i = 0; i < effectTypes.Length; i++)
+            {
+                switch(effectTypes[i])
+                {
+                    case effectType.getBrave:
+                    player.GetBrave(figure[i]);
+                    break;
+                    case effectType.applyBrave:
+                    break;
+                    case effectType.getBraveByCard:
+                    break;
+                    case effectType.getDivinePower:
+                    player.GetDivinePower(figure[i]);
+                    break;
+                    case effectType.applyDivinePower:
+                    break;
+                    case effectType.getFlame:
+                    player.GetFlame(figure[i]);
+                    break;
+                    case effectType.applyFlame:
+                    break;
+                    case effectType.getThorn:
+                    player.GetThorn(figure[i]);
+                    break;
+                    case effectType.applyThorn:
+                    break;
+                    case effectType.getDefence:
+                    player.GetThorn(figure[i]);
+                    break;
+                    case effectType.applyDefence:
+                    break;
+                    case effectType.takeShieldBreak:
+                    player.TakeShieldBreak();
+                    break;
+                    case effectType.applyShieldBreak:
+                    break;
+                    case effectType.takeWeaponBreak:
+                    player.TakeWeaponBreak();
+                    break;
+                    case effectType.applyWeaponBreak:
+                    break;
+                    case effectType.getEcho:
+                    player.GetEcho();
+                    break;
+                    case effectType.applyEcho:
+                    break;
+                }
+            }
             gm.availableCardSlots[handIndex] = true;
             Invoke("MoveToDiscardPile", 2f);
         }
