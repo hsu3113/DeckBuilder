@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public Transform[] effects;
     public Transform[] effectSlots;
     public bool[] availableEffectSlots;
-    
+    public bool[] isMove;
     private GameManager gm;
 
 
@@ -203,10 +203,10 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < availableEffectSlots.Length; i++)
         {
-            if(availableEffectSlots[i])
+            if(availableEffectSlots[i] && !isMove[num])
             {
                 effects[num].transform.position = effectSlots[i].transform.position;
-                
+                isMove[num] = true;
                 availableEffectSlots[i] = false;
                 break;
             }

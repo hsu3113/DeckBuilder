@@ -2635,6 +2635,7 @@ MonoBehaviour:
   - {fileID: 2021764555}
   - {fileID: 1434530120}
   availableEffectSlots: 01010101010101
+  isMove: 00000000000000
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
