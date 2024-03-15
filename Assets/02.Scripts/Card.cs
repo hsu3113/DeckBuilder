@@ -15,7 +15,9 @@ public class Card : MonoBehaviour
     [TextArea]
     public string cardInform;
 
-    public effectType[] effectTypes;
+    public EffectType[] effectTypes;
+
+    public List<Tag> tags = new List<Tag>();
 
     public int[] figure;
 
@@ -35,47 +37,47 @@ public class Card : MonoBehaviour
             {
                 switch(effectTypes[i])
                 {
-                    case effectType.getBrave:
+                    case EffectType.GetBrave:
                     player.GetBrave(figure[i]);
                     break;
-                    case effectType.applyBrave:
+                    case EffectType.ApplyBrave:
                     break;
-                    case effectType.getBraveByCard:
+                    case EffectType.GetBraveByCard:
                     break;
-                    case effectType.getDivinePower:
+                    case EffectType.GetDivinePower:
                     player.GetDivinePower(figure[i]);
                     break;
-                    case effectType.applyDivinePower:
+                    case EffectType.ApplyDivinePower:
                     break;
-                    case effectType.getFlame:
+                    case EffectType.GetFlame:
                     player.GetFlame(figure[i]);
                     break;
-                    case effectType.applyFlame:
+                    case EffectType.ApplyFlame:
                     break;
-                    case effectType.getThorn:
+                    case EffectType.GetThorn:
                     player.GetThorn(figure[i]);
                     break;
-                    case effectType.applyThorn:
+                    case EffectType.ApplyThorn:
                     break;
-                    case effectType.getDefence:
+                    case EffectType.GetDefence:
                     player.GetThorn(figure[i]);
                     break;
-                    case effectType.applyDefence:
+                    case EffectType.ApplyDefence:
                     break;
-                    case effectType.takeShieldBreak:
+                    case EffectType.TakeShieldBreak:
                     player.TakeShieldBreak();
                     break;
-                    case effectType.applyShieldBreak:
+                    case EffectType.ApplyShieldBreak:
                     break;
-                    case effectType.takeWeaponBreak:
+                    case EffectType.TakeWeaponBreak:
                     player.TakeWeaponBreak();
                     break;
-                    case effectType.applyWeaponBreak:
+                    case EffectType.ApplyWeaponBreak:
                     break;
-                    case effectType.getEcho:
+                    case EffectType.GetEcho:
                     player.GetEcho();
                     break;
-                    case effectType.applyEcho:
+                    case EffectType.ApplyEcho:
                     break;
                 }
             }

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
+
+    public List<Card> exhaust = new List<Card>();
     public Transform[] cardSlots;
     public bool[] availableCardSlots;
     

@@ -2,28 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum effectType
+public enum EffectType
 {
-    getBrave,
-    applyBrave, 
-    getBraveByCard,
-    getDivinePower, 
-    applyDivinePower,
-    getFlame, 
-    applyFlame, 
-    getThorn, 
-    applyThorn, 
-    getDefence,
-    applyDefence,
+    GetBrave,
+    ApplyBrave, 
+    GetBraveByCard,
+    GetDivinePower, 
+    ApplyDivinePower,
+    GetFlame, 
+    ApplyFlame, 
+    GetThorn, 
+    ApplyThorn, 
+    GetDefence,
+    ApplyDefence,
 
-    takeShieldBreak, 
-    applyShieldBreak, 
-    takeWeaponBreak, 
-    applyWeaponBreak, 
-    getEcho,
-    applyEcho,
-    loseAllDefence,
-    bringAllBraveCard,
-    bringAllBraveCardInDiscard,
-    exhaust
+    TakeShieldBreak, 
+    ApplyShieldBreak, 
+    TakeWeaponBreak, 
+    ApplyWeaponBreak, 
+    GetEcho,
+    ApplyEcho,
+    LoseAllDefence,
+    BringAllBraveCard,
+    BringAllBraveCardInDiscard,
+    Exhaust
+}
+public enum Tag
+{
+    brave
 }
