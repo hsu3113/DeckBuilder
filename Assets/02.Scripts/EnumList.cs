@@ -25,9 +25,13 @@ public enum EffectType
     LoseAllDefence,
     BringAllBraveCard,
     BringAllBraveCardInDiscard,
-    Exhaust
+    Exhaust,
+    LoseAllBrave,
+    DiscardInHands,
+    BringShieldCard
 }
 public enum Tag
 {
-    brave
+    brave,
+    shield
 }

@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     private bool isWeaponBreak;
     private bool isEcho;
     
-    private int usedbrave;
+    private int usedBrave;
+    public int haveBrave;
+    public int haveShield;
 
-
+    private int target;
     public int defence;
     public int health;
     public Transform[] effects;
@@ -29,104 +31,130 @@ public class Player : MonoBehaviour
     public void GetBrave(int getBrave)
     {
         brave += getBrave;
-        usedbrave++;
-        LoadEffects();
+        usedBrave++;
     }
     public void TakeShieldBreak()
     {
         isShieldBreak = true;
-        LoadEffects();
     }
 
     public void GetDivinePower(int getDivinePower)
     {
         divinePower += getDivinePower;
-        LoadEffects();
     }
     public void GetFlame(int getFlame)
     {
         flame += getFlame;
-        LoadEffects();
     }
     public void GetThorn(int getThorn)
     {
         thorn += getThorn;
-        LoadEffects();
     }
     public void TakeWeaponBreak()
     {
         isWeaponBreak = true;
-        LoadEffects();
+    }
+
+    public void ApplyWeaponBreak()
+    {
+        gm.enemyIsWeaponBreak[target] = true;
     }
     public void GetEcho()
     {
         isEcho = true;
-        LoadEffects();
     }
     public void LoseAllDefence()
     {
         defence = 0;
-        LoadEffects();
     }
     public void GetBraveByCard(int getBraveByCard)
     {
-        for (int i = 0; i < usedbrave; i++)
+        for (int i = 0; i < usedBrave; i++)
         {
             brave += getBraveByCard;
         }
-        LoadEffects();
     }
-    public void BringAllBraveCardInDiscard()
+    public void BringTagCardInDeck(Tag tag, int amount)
     {
+        int count = 0;
+        if(amount == 0)
+        {
+            for(int i = 0; i < gm.deck.Count; i++)
+            {  
+                if(gm.deck[i].tags.Contains(tag))
+                {
+                    gm.deck[i].DrawThisCard();
+                    gm.deck.Remove(gm.deck[i]);
+                }
+            }
+        }
+        else
+        {
+            while(count < amount)
+            {
+                int i = 0;
+                if(gm.deck[i].tags.Contains(tag))
+                {
+                    gm.deck[i].DrawThisCard();
+                    gm.deck.Remove(gm.deck[i]);
+                    count++;
+                }
+                i++;
+            }
+        }
         
-        for(int i = 0; i < gm.discardPile.Count; i++)
-        {  
-            if(gm.discardPile[i].tags.Contains(Tag.brave))
-            {
-                for (int j = 0; j < gm.availableCardSlots.Length; j++)
-                {
-                    if(gm.availableCardSlots[i] == true)
-                    {
-                        gm.discardPile[i].gameObject.SetActive(true);
-                        gm.discardPile[i].handIndex = j;
-                        gm.discardPile[i].transform.position = gm.cardSlots[j].position;
-                        gm.discardPile[i].hasBeenPlayed = false;
-                        gm.availableCardSlots[i] = false;
-                        gm.discardPile.Remove(gm.deck[i]);
-                        return;
-                    }
-                    else Debug.Log("손이 가득찼다.");
-                }
-            }
-        }
-        LoadEffects();
     }
-    public void BringAllBraveCardInDeck()
+    public void BringTagCardInDiscard(Tag tag, int amount)
     {
-        for(int i = 0; i < gm.deck.Count; i++)
-        {  
-            if(gm.deck[i].tags.Contains(Tag.brave))
-            {
-                for (int j = 0; j < gm.availableCardSlots.Length; j++)
+        int count = 0;
+        if(amount == 0)
+        {
+           for(int i = 0; i < gm.discardPile.Count; i++)
+            {  
+                if(gm.discardPile[i].tags.Contains(tag))
                 {
-                    if(gm.availableCardSlots[i] == true)
-                    {
-                        gm.deck[i].gameObject.SetActive(true);
-                        gm.deck[i].handIndex = j;
-                        gm.deck[i].transform.position = gm.cardSlots[j].position;
-                        gm.deck[i].hasBeenPlayed = false;
-                        gm.availableCardSlots[i] = false;
-                        gm.deck.Remove(gm.deck[i]);
-                        return;
-                    }
-                    else Debug.Log("손이 가득찼다.");
+                    gm.discardPile[i].DrawThisCard();
+                    gm.discardPile.Remove(gm.deck[i]);
                 }
+            } 
+        }
+        else
+        {
+            while(count < amount)
+            {
+                int i = 0;
+                if(gm.discardPile[i].tags.Contains(tag))
+                {
+                    count++;
+                    gm.discardPile[i].DrawThisCard();
+                    gm.discardPile.Remove(gm.deck[i]);
+                }
+                i++;
             }
         }
-        LoadEffects();
     }
-    public void GetDefence(int getDefence){
+   
+    public void GetDefence(int getDefence)
+    {
         defence += getDefence;
+    }
+    
+    public void LoseAllBrave()
+    {
+        brave = 0;
+    }
+
+    public void DiscardInHands(int amount)
+    {
+        for(int i = 0; i < amount; i++)
+        {
+            int r = Random.Range(0,gm.cardSlots.Length);
+            Card randomCard = gm.hands[Random.Range(0,gm.hands.Count)];
+            randomCard.hasBeenPlayed = true;
+            gm.availableCardSlots[randomCard.handIndex] = true;
+            gm.hands.Remove(randomCard);
+            randomCard.MoveToDiscardPile();
+        }
     }
     public void TurnEnd()
     {
@@ -225,6 +253,18 @@ public class Player : MonoBehaviour
         thorn = 0;
         isWeaponBreak = false;
         isEcho = false;
+        haveBrave = 0;
+        haveShield = 0;
+        for(int i = 0; i < gm.deck.Count; i++)
+        {
+            for(int j = 0; j < gm.deck[i].tags.Count; j++)
+            {
+                if(gm.deck[i].tags[j] == Tag.brave)
+                {
+                    haveBrave++;
+                }
+            }
+        }
     }
     private void Start()
     {
