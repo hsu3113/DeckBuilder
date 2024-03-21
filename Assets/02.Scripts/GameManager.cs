@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
+
+
+    public List<Card> deckNotUse = new List<Card>();
     public List<Card> discardPile = new List<Card>();
     public List<Card> hands = new List<Card>();
     public List<Card> exhaust = new List<Card>();
@@ -29,9 +33,9 @@ public class GameManager : MonoBehaviour
     {
         if (deck.Count >= 1)
         {
-            Card randomCard =  deck[Random.Range(0,deck.Count)];
-            Debug.Log("드로우카드");
-            randomCard.DrawThisCard();
+            int num = Random.Range(0,deck.Count);
+            Card randomCard = deck[num];
+            //randomCard.DrawThisCard();
             deck.Remove(randomCard);
         }
     }
@@ -47,16 +51,19 @@ public class GameManager : MonoBehaviour
                 discardPile.Clear();
         }
     }
-
+    public void SizeCount()
+    {
+        deckSizeText.text = deck.Count.ToString();    
+        discardPileText.text = discardPile.Count.ToString();
+    }
+    
     private void Awake()
     {
         hands = new List<Card>(new Card[availableCardSlots.Length]);
     }
     private void Update()
     {
-        deckSizeText.text = deck.Count.ToString();
-        discardPileText.text = discardPile.Count.ToString();
+        //SizeCount();
     }
-
 
 }

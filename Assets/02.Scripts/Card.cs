@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
     private string _cardInform;
     private bool exhausted = false;
 
-    private void OnMouseDown()
+ /*   private void OnMouseDown()
     {
         if(!hasBeenPlayed)
         {
@@ -112,8 +112,8 @@ public class Card : MonoBehaviour
             gm.hands.Remove(this);
             if(!exhausted) Invoke("MoveToDiscardPile", 2f);
         }
-    }
-    public void MoveToDiscardPile()
+    }*/
+    /*public void MoveToDiscardPile()
     {
         gm.discardPile.Add(this);
         gameObject.SetActive(false);
@@ -123,26 +123,25 @@ public class Card : MonoBehaviour
         gm.exhaust.Add(this);
         gameObject.SetActive(false);
     }
+    */
     public void DrawThisCard()
     {
         for (int i = 0; i < gm.availableCardSlots.Length; i++)
         {
-            Debug.Log("빈 슬롯 확인중");
             if(gm.availableCardSlots[i])
-            {
-                
-                Debug.Log("확인 완료");   
+            { 
                 gameObject.SetActive(true);
                 handIndex = i;
                 transform.position = gm.cardSlots[i].position;
                 hasBeenPlayed = false;
                 gm.availableCardSlots[i] = false;
-                gm.hands[i] = this;                
+                gm.hands[i] = this;  
+                return;              
             }
-            else Debug.Log("손이 가득찼다.");
         }
+        Debug.Log("손이 가득찼다.");
     }
-
+/*
     public string SetInform(string inform)
     {
         string[] informs = inform.Split('!');
@@ -175,5 +174,5 @@ public class Card : MonoBehaviour
         textInform = transform.GetChild(2).GetComponent<TMP_Text>();
         _cardInform = SetInform(cardInform);
         Writing(cardName,_cardInform);
-    }
+    }*/
 }
