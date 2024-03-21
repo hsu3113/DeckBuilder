@@ -1105,9 +1105,10 @@ MonoBehaviour:
   cardName: "\uAC81\uC7C1\uC774\uC758 \uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4. \uBAA8\uB4E0 \uC6A9\uAE30\uB97C
     \uC783\uB294\uB2E4."
-  effectTypes: 0900000015000000
+  effectTypes: 0000000015000000
   tags: 
   figure: 0a000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -1433,9 +1434,10 @@ MonoBehaviour:
   cardName: "\uD758\uB9AC\uAE30"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4. \uCE74\uB4DC\uB97C
     !B! \uC7A5 \uBC84\uB9B0\uB2E4."
-  effectTypes: 0900000016000000
+  effectTypes: 0000000016000000
   tags: 
   figure: 0800000001000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -2269,6 +2271,7 @@ MonoBehaviour:
   effectTypes: 0000000002000000
   tags: 
   figure: 0600000001000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -3358,9 +3361,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uB9DD\uD1A0"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4."
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 03000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -3975,6 +3979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f40426e0d38a9458deecc7d9c9cd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  haveBrave: 0
+  haveShield: 0
   defence: 0
   health: 0
   effects:
@@ -4555,9 +4561,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uBC29\uD328 \uC218\uC9D1"
   cardInform: "\uBC29\uD328 \uCE74\uB4DC\uB97C 2\uC7A5 \uAC00\uC838\uC628\uB2E4.\n\uC18C\uBA78"
-  effectTypes: 12000000
+  effectTypes: 00000000
   tags: 
   figure: 02000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -4743,9 +4750,10 @@ MonoBehaviour:
   cardName: "\uAC00\uC2DC \uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4. \uAC00\uC2DC\uB97C
     !B! \uC5BB\uB294\uB2E4."
-  effectTypes: 0900000007000000
+  effectTypes: 0000000007000000
   tags: 
   figure: 0800000003000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -4983,9 +4991,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uC544\uC774\uAE30\uC2A4\uC758 \uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4.\n\uC18C\uBA78"
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 1b000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -6779,6 +6788,7 @@ MonoBehaviour:
   effectTypes: 000000000b000000
   tags: 00000000
   figure: 03000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -6932,9 +6942,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uBB34\uAE30 \uD30C\uAD34\uC220"
   cardInform: "1/2\uD655\uB960\uB85C \uBB34\uAE30 \uD30C\uAD34\uB97C \uBD80\uC5EC\uD55C\uB2E4.\r"
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 03000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -8472,9 +8483,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4."
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 06000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -9944,6 +9956,7 @@ MonoBehaviour:
   effectTypes: 0000000005000000
   tags: 00000000
   figure: 0400000003000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -10216,6 +10229,7 @@ MonoBehaviour:
   effectTypes: 0000000011000000
   tags: 
   figure: 07000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -10369,9 +10383,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uC6A9\uAE30\uBC31\uBC30"
   cardInform: "\uBAA8\uB4E0 \uC6A9\uAE30 \uCE74\uB4DC\uB97C \uD328\uB85C \uAC00\uC838\uC628\uB2E4.\n\uC18C\uBA78"
-  effectTypes: 1200000014000000
+  effectTypes: 0000000014000000
   tags: 00000000
   figure: 
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -11126,6 +11141,7 @@ MonoBehaviour:
   effectTypes: 0000000003000000
   tags: 00000000
   figure: 0300000008000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -11279,9 +11295,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uD328\uC790 \uBD80\uD65C\uC804"
   cardInform: "\uBC84\uB9B0 \uCE74\uB4DC \uC911 \uC6A9\uAE30 \uCE74\uB4DC\uB97C \uAC00\uC838\uC628\uB2E4."
-  effectTypes: 13000000
+  effectTypes: 00000000
   tags: 
   figure: 
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -13611,6 +13628,7 @@ MonoBehaviour:
   effectTypes: 00000000
   tags: 00000000
   figure: 01000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -14195,9 +14213,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uBC1C\uD654"
   cardInform: "\uD654\uC5FC\uC744 !A! \uC5BB\uB294\uB2E4."
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 03000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -14438,6 +14457,7 @@ MonoBehaviour:
   effectTypes: 00000000
   tags: 00000000
   figure: 04000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -14622,9 +14642,10 @@ MonoBehaviour:
   handIndex: 0
   cardName: "\uD070 \uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4."
-  effectTypes: 09000000
+  effectTypes: 00000000
   tags: 
   figure: 0d000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}
@@ -15780,9 +15801,10 @@ MonoBehaviour:
   cardName: "\uBD88\uD0C0\uB294 \uBC29\uD328"
   cardInform: "\uBC29\uC5B4\uB3C4\uB97C !A! \uC5BB\uB294\uB2E4. \uD654\uC5FC\uC744
     !B! \uC5BB\uB294\uB2E4."
-  effectTypes: 0900000005000000
+  effectTypes: 0000000005000000
   tags: 
   figure: 0500000004000000
+  gm: {fileID: 440684777}
   player: {fileID: 0}
   textName: {fileID: 0}
   textInform: {fileID: 0}

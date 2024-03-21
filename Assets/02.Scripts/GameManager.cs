@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         if (deck.Count >= 1)
         {
             Card randomCard =  deck[Random.Range(0,deck.Count)];
+            Debug.Log("드로우카드");
             randomCard.DrawThisCard();
             deck.Remove(randomCard);
         }
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        hands = new List<Card>(new Card[availableCardSlots.Length]);
+    }
     private void Update()
     {
         deckSizeText.text = deck.Count.ToString();

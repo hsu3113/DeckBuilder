@@ -21,7 +21,7 @@ public class Card : MonoBehaviour
 
     public int[] figure;
 
-    private GameManager gm;
+    public GameManager gm;
     public Player player;
 
     public TMP_Text textName, textInform;
@@ -127,8 +127,11 @@ public class Card : MonoBehaviour
     {
         for (int i = 0; i < gm.availableCardSlots.Length; i++)
         {
+            Debug.Log("빈 슬롯 확인중");
             if(gm.availableCardSlots[i])
             {
+                
+                Debug.Log("확인 완료");   
                 gameObject.SetActive(true);
                 handIndex = i;
                 transform.position = gm.cardSlots[i].position;
