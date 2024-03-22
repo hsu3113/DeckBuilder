@@ -103,8 +103,7 @@ public class Card : MonoBehaviour
                     player.DiscardInHands(figure[i]);
                     break;
                     case EffectType.BringShieldCard:
-                    player.BringTagCardInDeck(Tag.Shield, figure[i]);
-                    player.BringTagCardInDiscard(Tag.Shield, figure[i]);
+                    player.BringTagCardInDiscard(Tag.Shield, figure[i] - player.BringTagCardInDeck(Tag.Shield, figure[i]));
                     break;
                 }
             }

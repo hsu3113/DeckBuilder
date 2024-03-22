@@ -41,3 +41,8 @@ public enum CardPlace
     Discard,
     Exhaust
 }
+public enum EnemyRace
+{
+    Undead,
+    Human
+}

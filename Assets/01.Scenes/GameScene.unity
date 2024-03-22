@@ -2865,6 +2865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 290884323}
   - component: {fileID: 290884322}
+  - component: {fileID: 290884324}
   m_Layer: 0
   m_Name: HeavyBandit_17
   m_TagString: Untagged
@@ -2939,6 +2940,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417684354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290884324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290884321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d574891503af444a834902f78dd8fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  brave: 0
+  isShieldBreak: 0
+  divinePower: 0
+  flame: 0
+  thorn: 0
+  isWeaponBreak: 0
+  isEcho: 0
+  defence: 0
+  health: 0
+  enemyRace: 0
 --- !u!1 &291177435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +3980,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f402c4e1421a684f82fc1fe1f2de391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 1736332458}
+  - {fileID: 847641348}
+  - {fileID: 1904431477}
+  - {fileID: 1364451211}
+  - {fileID: 1492833646}
+  - {fileID: 1436362514}
+  - {fileID: 210714155}
+  - {fileID: 1444381822}
+  - {fileID: 1531413986}
+  - {fileID: 401091026}
+  - {fileID: 1099330295}
+  - {fileID: 96363458}
+  - {fileID: 1933053348}
+  - {fileID: 2071303409}
+  - {fileID: 606172448}
+  - {fileID: 97451751}
+  - {fileID: 623363099}
+  - {fileID: 558182287}
+  - {fileID: 847711023}
+  - {fileID: 1844280317}
   deck:
   - {fileID: 1736332458}
   - {fileID: 847641348}
@@ -4010,13 +4055,8 @@ MonoBehaviour:
   availableCardSlots: 0101010101
   deckSizeText: {fileID: 1310258120}
   discardPileText: {fileID: 885679524}
-  enemyHealth: 
-  enemyBrave: 
-  enemyIsShieldBreak: 
-  enemyDivinePower: 
-  enemyFlame: 
-  enemyThorn: 
-  enemyIsWeaponBreak: 
+  exhaustSizeText: {fileID: 0}
+  enemies: []
   enemyIsEcho: 
 --- !u!4 &440684778
 Transform:
@@ -4045,6 +4085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f40426e0d38a9458deecc7d9c9cd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   haveBrave: 0
   haveShield: 0
   defence: 0
@@ -7293,6 +7334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860647479}
   - component: {fileID: 860647478}
+  - component: {fileID: 860647480}
   m_Layer: 0
   m_Name: LightBandit_23
   m_TagString: Untagged
@@ -7367,6 +7409,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417684354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860647480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860647477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d574891503af444a834902f78dd8fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  brave: 0
+  isShieldBreak: 0
+  divinePower: 0
+  flame: 0
+  thorn: 0
+  isWeaponBreak: 0
+  isEcho: 0
+  defence: 0
+  health: 0
+  enemyRace: 0
 --- !u!1 &864907973
 GameObject:
   m_ObjectHideFlags: 0
@@ -11475,6 +11540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550817465}
   - component: {fileID: 1550817464}
+  - component: {fileID: 1550817466}
   m_Layer: 0
   m_Name: HeavyBandit_0
   m_TagString: Untagged
@@ -11549,6 +11615,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417684354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550817466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550817463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d574891503af444a834902f78dd8fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  brave: 0
+  isShieldBreak: 0
+  divinePower: 0
+  flame: 0
+  thorn: 0
+  isWeaponBreak: 0
+  isEcho: 0
+  defence: 0
+  health: 0
+  enemyRace: 0
 --- !u!1 &1561767018
 GameObject:
   m_ObjectHideFlags: 0
@@ -14393,6 +14482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869332980}
   - component: {fileID: 1869332979}
+  - component: {fileID: 1869332981}
   m_Layer: 0
   m_Name: LightBandit_6
   m_TagString: Untagged
@@ -14467,6 +14557,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417684354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869332981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869332978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d574891503af444a834902f78dd8fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  brave: 0
+  isShieldBreak: 0
+  divinePower: 0
+  flame: 0
+  thorn: 0
+  isWeaponBreak: 0
+  isEcho: 0
+  defence: 0
+  health: 0
+  enemyRace: 0
 --- !u!1 &1904431475
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Player : MonoBehaviour
 {
+    public int damage;
     private int brave;
     private bool isShieldBreak;
     private int divinePower;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
     public bool[] isMove;
     private GameManager gm;
 
-
+#region 
     public void GetBrave(int getBrave)
     {
         brave += getBrave;
@@ -37,7 +39,6 @@ public class Player : MonoBehaviour
     {
         isShieldBreak = true;
     }
-
     public void GetDivinePower(int getDivinePower)
     {
         divinePower += getDivinePower;
@@ -54,10 +55,9 @@ public class Player : MonoBehaviour
     {
         isWeaponBreak = true;
     }
-
     public void ApplyWeaponBreak()
     {
-        gm.enemyIsWeaponBreak[target] = true;
+        gm.enemies[target].isWeaponBreak = true;
     }
     public void GetEcho()
     {
@@ -92,12 +92,12 @@ public class Player : MonoBehaviour
         }
         return count;
     }
-    public void BringTagCardInDeck(Tag tag, int amount)
+    public int BringTagCardInDeck(Tag tag, int amount)
     {
         int count = 0;
         foreach(Card card in gm.deck)
         {
-            if(count < amount) break;
+            if(count < amount) return count;
             if(card.tags.Contains(tag))
             {
                 card.DrawThisCard(CardPlace.Deck);
@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
                 count++;
             }
         }
+        return count;
     }
     public void BringTagCardInDiscard(Tag tag, int amount)
     {
@@ -119,18 +120,15 @@ public class Player : MonoBehaviour
                 count++;
             }
         }
-    }
-   
+    } 
     public void GetDefence(int getDefence)
     {
-        defence += getDefence;
+        if(!isShieldBreak) defence += getDefence;
     }
-    
     public void LoseAllBrave()
     {
         brave = 0;
     }
-
     public void DiscardInHands(int amount)
     {
         for(int i = 0; i < amount; i++)
@@ -143,19 +141,8 @@ public class Player : MonoBehaviour
             randomCard.MoveToDiscardPile();
         }
     }
-    public void TurnEnd()
-    {
-        defence = 0;
-        if(brave == 1) brave--;
-        if(brave != 0) brave -= brave/2;
-        divinePower = 0;
-        flame = 0;
-        thorn = 0;
-        isEcho = false;
-        isShieldBreak = false;
-        isWeaponBreak = false;
-        LoadEffects();
-    }   
+#endregion
+
     public void LoadEffects()
     {
         if(brave != 0)
@@ -240,6 +227,39 @@ public class Player : MonoBehaviour
         haveBrave = 0;
         haveShield = 0;
     }
+
+    public void TurnEnd()
+    {
+        defence = 0;
+        if(brave == 1) brave--;
+        if(brave != 0) brave -= brave/2;
+        divinePower = 0;
+        flame = 0;
+        thorn = 0;
+        isEcho = false;
+        isShieldBreak = false;
+        isWeaponBreak = false;
+        LoadEffects();
+    }   
+
+    public void Battle()
+    {
+        if(!isWeaponBreak)
+        {
+            Attack();
+            if(isEcho) Attack();
+        }
+
+    }
+    public void Attack()
+    {
+        Enemy enemy = gm.enemies[target];
+        enemy.health -= damage + brave;
+        if(enemy.enemyRace == EnemyRace.Undead) enemy.health -= divinePower;
+        if(enemy.thorn > 0) health -= thorn;
+        if(flame > 0) enemy.flame += flame;
+    }
+
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
