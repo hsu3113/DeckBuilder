@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public bool[] isMove;
     private GameManager gm;
 
-/*
+
     public void GetBrave(int getBrave)
     {
         brave += getBrave;
@@ -95,57 +95,28 @@ public class Player : MonoBehaviour
     public void BringTagCardInDeck(Tag tag, int amount)
     {
         int count = 0;
-        if(amount == 0)
+        foreach(Card card in gm.deck)
         {
-            foreach(Card card in gm.deck)
+            if(count < amount) break;
+            if(card.tags.Contains(tag))
             {
-                if(card.tags.Contains(tag))
-                {
-                    card.DrawThisCard();
-                    gm.deck.Remove(card);
-                }
+                card.DrawThisCard(CardPlace.Deck);
+                gm.deck.Remove(card);
+                count++;
             }
         }
-        else
-        {
-            foreach(Card card in gm.deck)
-            {
-                if(count < amount) break;
-                if(card.tags.Contains(tag))
-                {
-                    card.DrawThisCard();
-                    gm.deck.Remove(card);
-                    count++;
-                }
-            }
-        }
-        
     }
     public void BringTagCardInDiscard(Tag tag, int amount)
     {
         int count = 0;
-        if(amount == 0)
+        foreach(Card card in gm.discardPile)
         {
-           foreach(Card card in gm.discardPile)
+            if(amount != 0 & count < amount) return;
+            if(card.tags.Contains(tag))
             {
-                if(card.tags.Contains(tag))
-                {
-                    card.DrawThisCard();
-                    gm.discardPile.Remove(card);
-                }
-            } 
-        }
-        else
-        {
-            foreach(Card card in gm.discardPile)
-            {
-                if(count < amount) break;
-                if(card.tags.Contains(tag))
-                {
-                    card.DrawThisCard();
-                    gm.discardPile.Remove(card);
-                    count++;
-                }
+               card.DrawThisCard(CardPlace.Discard);
+                gm.discardPile.Remove(card);
+                count++;
             }
         }
     }
@@ -268,20 +239,10 @@ public class Player : MonoBehaviour
         isEcho = false;
         haveBrave = 0;
         haveShield = 0;
-        for(int i = 0; i < gm.deck.Count; i++)
-        {
-            for(int j = 0; j < gm.deck[i].tags.Count; j++)
-            {
-                if(gm.deck[i].tags[j] == Tag.brave)
-                {
-                    haveBrave++;
-                }
-            }
-        }
     }
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
         SetR();
-    }*/
+    }
 }

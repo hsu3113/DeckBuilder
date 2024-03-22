@@ -32,6 +32,12 @@ public enum EffectType
 }
 public enum Tag
 {
-    brave,
-    shield
+    Brave,
+    Shield
+}
+public enum CardPlace
+{
+    Deck,
+    Discard,
+    Exhaust
 }

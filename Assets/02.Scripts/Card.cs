@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,7 +27,7 @@ public class Card : MonoBehaviour
     private string _cardInform;
     private bool exhausted = false;
 
- /*   private void OnMouseDown()
+    private void OnMouseDown()
     {
         if(!hasBeenPlayed)
         {
@@ -71,7 +70,9 @@ public class Card : MonoBehaviour
                     case EffectType.ApplyShieldBreak:
                     break;
                     case EffectType.TakeWeaponBreak:
-                    player.TakeWeaponBreak();
+                    int per = Random.Range(0, figure[i]);
+                    if (per == 0) player.TakeWeaponBreak();
+                    else Debug.Log("fail");
                     break;
                     case EffectType.ApplyWeaponBreak:
                     player.ApplyWeaponBreak();
@@ -85,11 +86,11 @@ public class Card : MonoBehaviour
                     player.LoseAllDefence();
                     break;
                     case EffectType.BringAllBraveCard:
-                    player.BringTagCardInDeck(Tag.brave, 0);
-                    player.BringTagCardInDiscard(Tag.brave, 0);
+                    player.BringTagCardInDeck(Tag.Brave, 0);
+                    player.BringTagCardInDiscard(Tag.Brave, 0);
                     break;
                     case EffectType.BringAllBraveCardInDiscard:
-                    player.BringTagCardInDiscard(Tag.brave, 0);
+                    player.BringTagCardInDiscard(Tag.Brave, 0);
                     break;
                     case EffectType.Exhaust:
                     MoveToExhaust();
@@ -102,8 +103,8 @@ public class Card : MonoBehaviour
                     player.DiscardInHands(figure[i]);
                     break;
                     case EffectType.BringShieldCard:
-                    player.BringTagCardInDeck(Tag.brave, figure[i]);
-                    player.BringTagCardInDiscard(Tag.brave, figure[i]);
+                    player.BringTagCardInDeck(Tag.Shield, figure[i]);
+                    player.BringTagCardInDiscard(Tag.Shield, figure[i]);
                     break;
                 }
             }
@@ -112,8 +113,8 @@ public class Card : MonoBehaviour
             gm.hands.Remove(this);
             if(!exhausted) Invoke("MoveToDiscardPile", 2f);
         }
-    }*/
-    /*public void MoveToDiscardPile()
+    }
+    public void MoveToDiscardPile()
     {
         gm.discardPile.Add(this);
         gameObject.SetActive(false);
@@ -123,8 +124,8 @@ public class Card : MonoBehaviour
         gm.exhaust.Add(this);
         gameObject.SetActive(false);
     }
-    */
-    public void DrawThisCard()
+    
+    public void DrawThisCard(CardPlace place)
     {
         for (int i = 0; i < gm.availableCardSlots.Length; i++)
         {
@@ -135,13 +136,25 @@ public class Card : MonoBehaviour
                 transform.position = gm.cardSlots[i].position;
                 hasBeenPlayed = false;
                 gm.availableCardSlots[i] = false;
-                gm.hands[i] = this;  
+                gm.hands[i] = this;
+                switch (place)
+                {
+                    case CardPlace.Deck:
+                    gm.deck.Remove(this);
+                    break;
+                    case CardPlace.Discard:
+                    gm.discardPile.Remove(this);
+                    break;
+                    case CardPlace.Exhaust:
+                    gm.exhaust.Remove(this);
+                    break;
+                }
                 return;              
             }
         }
         Debug.Log("손이 가득찼다.");
     }
-/*
+
     public string SetInform(string inform)
     {
         string[] informs = inform.Split('!');
@@ -168,11 +181,10 @@ public class Card : MonoBehaviour
 
     private void Awake()
     {
-        gm = FindObjectOfType<GameManager>();
         player = FindObjectOfType<Player>();
         textName = transform.GetChild(1).GetComponent<TMP_Text>();
         textInform = transform.GetChild(2).GetComponent<TMP_Text>();
         _cardInform = SetInform(cardInform);
         Writing(cardName,_cardInform);
-    }*/
+    }
 }

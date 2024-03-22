@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             int num = Random.Range(0,deck.Count);
             Card randomCard = deck[num];
-            //randomCard.DrawThisCard();
+            randomCard.DrawThisCard(CardPlace.Deck);
             deck.Remove(randomCard);
         }
     }
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //SizeCount();
+        SizeCount();
     }
 
 }
